@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SeaBattle {
     // Направление корабля
@@ -122,7 +119,7 @@ namespace SeaBattle {
             FuncOfAdd[] funcsOfAdd = new FuncOfAdd[] { AddVerticallyShip, AddHorizontallyShip };
             bool isAddedShip = false;
             while (!isAddedShip) {
-                // доступных ячеек нет
+                // Проверка на пустоту доступных ячеек
                 if (availableCell.Count == 0) {
                     break;
                 }
@@ -131,7 +128,7 @@ namespace SeaBattle {
 
                 isAddedShip = funcsOfAdd[(int)direction](position, numberOfDeck);
                 if (!isAddedShip) {
-                    // Изменяем направление корабля
+                    // Изменение направления корабля
                     direction ^= DirectionShip.Vertically ^ DirectionShip.Horizontally;
                     isAddedShip = funcsOfAdd[(int)direction](position, numberOfDeck);
                     if (!isAddedShip) {
